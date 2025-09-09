@@ -1,25 +1,35 @@
-function submitForm() {
-  const name = document.getElementById('name').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const email = document.getElementById('email').value.trim();
-  if (!name || !phone || !email) {
-    alert('Please fill in all required fields.');
-    return;
+// Counter animation with scroll trigger
+const counters = document.querySelectorAll(".num");
+
+function animateCounter(counter) {
+  const target = +counter.getAttribute("data-count");
+  const suffix = counter.getAttribute("data-suffix") || "";
+  let count = 0;
+  const increment = target / 200; // speed control
+
+  function updateCount() {
+    if (count < target) {
+      count += increment;
+      counter.innerText = Math.ceil(count);
+      requestAnimationFrame(updateCount);
+    } else {
+      counter.innerText = target + suffix;
+    }
   }
-  alert('Thanks, ' + name + '! Your request has been submitted.');
-  document.getElementById('quoteForm').reset();
+
+  updateCount();
 }
 
-// Smooth scroll for nav links
-document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
+// Use IntersectionObserver
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounter(entry.target);
+      observer.unobserve(entry.target); // run once
+    }
   });
-});
+}, { threshold: 0.6 });
 
-function toggleMenu() {
-  document.querySelector('nav').classList.toggle('show');
-}
+counters.forEach(counter => {
+  observer.observe(counter);
+});

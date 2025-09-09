@@ -2,118 +2,975 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aarthi Oil and Gas Services</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aarthi Oil and Gas Services — Land Seismic Experts</title>
+  <meta name="description" content="Land seismic acquisition, processing, and interpretation services across India. Reliable, safe, and data-driven field operations." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root{
+      --bg:#0b1b29;
+      --bg-2:#0f2236;
+      --brand:#18a0fb; /* distinct palette (not the source site) */
+      --brand-2:#00c1a1;
+      --ink:#0f172a;
+      --muted:#5f6b77;
+      --card:#ffffff;
+      --ring:rgba(24,160,251,.35);
+      --grad:linear-gradient(135deg, var(--brand) 0%, #5cc6ff 40%, #7ee2ff 100%);
+      --shade:rgba(0,0,0,.45);
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.15);
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;color:#0f2436;background:#f6f9fc}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1200px,92%);margin-inline:auto}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.8rem 1rem;border-radius:12px;border:1px solid transparent;font-weight:700}
+    .btn.primary{background:var(--brand);color:#ffffff}
+    .btn.outline{border-color:rgba(255,255,255,.35);color:#fff;background:transparent}
+    .btn.dark{background:#0f2236;color:#fff}
+    .grid{display:grid;gap:24px}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow)}
+
+    /* Topbar */
+    .topbar{background:#06131f;color:#c8d2dc;font-size:.9rem}
+    .topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:.5rem 0}
+    .topbar .inline{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+    .topbar svg{width:18px;height:18px;opacity:.9}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:linear-gradient(90deg,#0a2136,#0b2a46);color:#fff;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{width:42px;height:42px;border-radius:10px;background:var(--grad);display:grid;place-items:center;color:#001827;font-weight:800}
+    .brand .title{font-weight:800;letter-spacing:.2px}
+    .brand .sub{font-size:.78rem;opacity:.8}
+    nav.primary{display:flex;gap:18px;align-items:center}
+    nav.primary a{color:#e8f4ff;font-weight:700;padding:8px 10px;border-radius:10px}
+    nav.primary a.cta{background:var(--brand);color:#001827}
+    .hamburger{display:none;font-size:26px;cursor:pointer;user-select:none}
+
+    /* Hero */
+    .hero{position:relative;color:#fff;background:#0b1b29;height:100vh;max-height:800px;overflow:hidden}
+    .hero::after{content:"";position:absolute;inset:0;background:rgba(11,27,41,0.7);z-index:1}
+    .hero .wrap{position:relative;padding:72px 0;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;z-index:2;height:100%}
+    .kpis{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
+    .kpi{background:rgba(255,255,255,.08);backdrop-filter:blur(6px);padding:10px 14px;border-radius:12px;font-weight:700}
+    .hero .card{padding:18px;background:rgba(255,255,255,.95);color:#0f2436}
+    .hero h1{font-size:clamp(28px,6vw,48px);line-height:1.15;margin:0 0 12px;position:relative;z-index:2;white-space:nowrap}
+    .hero p.lead{color:#d3e6f7;max-width:56ch;margin:0 0 16px}
+    
+    /* Logo Slideshow */
+    .logo-slideshow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+    
+    .slide-logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+    
+    .slide-logo.active {
+      opacity: 1;
+    }
+
+    /* Sections */
+    section{padding:56px 0}
+    .section-title{font-size:clamp(22px,3.6vw,34px);margin:0 0 10px}
+    .muted{color:var(--muted)}
+
+    /* Services */
+    .services .grid{grid-template-columns:repeat(12,1fr)}
+    .svc{grid-column:span 4;background:#fff;padding:20px;border-radius:16px;border:1px solid #eef2f6;box-shadow:0 8px 28px rgba(2,17,33,.06)}
+    .svc h3{margin:6px 0 8px}
+    .svc p{color:var(--muted);font-size:.95rem}
+    .svc .icon{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#e6f6ff,#ffffff);display:grid;place-items:center;border:1px solid #e8f2fb}
+
+    /* About */
+    .about .grid{grid-template-columns:1.2fr .8fr;align-items:center}
+    .about .photo{border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+
+    /* Stats */
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .stat{background:#0f2236;border-radius:16px;padding:18px;text-align:center;border:1px solid #030f1a}
+    .stat .num{font-size:clamp(22px,4vw,34px);font-weight:800;color:#eaeef0}
+    .stat .lbl{color:var(--muted)}
+
+    /* Experience Elements */
+    .experience-grid {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+      overflow-x: auto;
+      padding-bottom: 20px;
+    }
+    
+    .experience-item {
+      flex: 0 0 calc(25% - 12px);
+      min-width: 250px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+    
+    .experience-item:hover {
+      transform: translateY(-10px);
+    }
+    
+    .experience-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    /* Support Services */
+    .support-services {
+      padding: 60px 0;
+      background-color: var(--bg-2);
+      margin: 60px 0;
+      color: white;
+      position: relative;
+    }
+    
+    .support-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .support-header h2 {
+      color: white;
+    }
+    
+    .support-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    
+    .support-text {
+      flex: 0 0 45%;
+    }
+    
+    .support-description {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius);
+      backdrop-filter: blur(5px);
+    }
+    
+    .camp-slideshow-container {
+      flex: 0 0 45%;
+      position: relative;
+      height: 320px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .camp-slideshow {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    
+    .camp-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    
+    .camp-slide.active {
+      opacity: 1;
+    }
+    
+    /* Projects */
+    .projects .row{display:flex;gap:16px;overflow:auto;padding-bottom:6px;scroll-snap-type:x mandatory}
+    .proj{min-width:290px;scroll-snap-align:start;background:#fff;border:1px solid #eef2f6;border-radius:16px;padding:16px;box-shadow:0 8px 28px rgba(2,17,33,.06)}
+    .proj h4{margin:4px 0 8px}
+
+    /* Clients */
+    .clients {
+      padding: 50px 0;
+      margin: 40px 0;
+    }
+    
+    .client-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin-top: 30px;
+    }
+    
+    .client-item {
+      flex: 0 0 auto;
+      text-align: center;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: var(--radius);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border: 1px solid #eef2f6;
+    }
+    
+    .client-logo {
+      max-width: 200px;
+      max-height: 100px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+    
+    .client-logo:hover {
+      transform: scale(1.05);
+    }
+
+    /* Contact */
+    .contact .grid{grid-template-columns:1fr 1fr}
+    .form{background:#fff;border:1px solid #eef2f6;border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+    .field{display:flex;gap:10px}
+    .field > *{flex:1}
+    input,textarea,select{width:100%;padding:12px;border-radius:10px;border:1px solid #d8e4ef;font:inherit}
+    input:focus,textarea:focus,select:focus{outline:3px solid var(--ring);border-color:var(--brand)}
+    
+    .map-address {
+      background-color: var(--brand);
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    
+    .map-address p {
+      margin: 0;
+    }
+    
+    .map-container {
+      height: 350px;
+    }
+
+    /* Footer */
+    footer{background:#06131f;color:#c8d2dc}
+    .foot{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;padding:36px 0}
+    .foot a{color:#e8f4ff}
+    .copyright{border-top:1px solid #0f2436;color:#9fb2c4;padding:14px 0}
+
+    /* Key Services */
+    .key-services {
+      background-color: white;
+      padding: 30px 0;
+      margin-top: 0;
+      border-radius: var(--radius) var(--radius) 0 0;
+      box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 10;
+    }
+    
+    .ks-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      text-align: center;
+    }
+    
+    .ks-item {
+      background: var(--light-color);
+      padding: 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      color: var(--primary-color);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #425465;
+    }
+    
+    /* Vision & Mission */
+    .vm-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    
+    .vision-mission .card {
+      padding: 24px;
+      height: 100%;
+    }
+    
+    /* Mobile */
+    @media (max-width: 992px){
+      .about .grid{grid-template-columns:1fr}
+      .contact .grid{grid-template-columns:1fr}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .services .svc{grid-column:span 6}
+      .ks-grid{grid-template-columns:repeat(2,1fr)}
+      .support-grid{flex-direction:column}
+      .support-text{flex:0 0 auto; margin-bottom:30px; width:90%}
+      .support-description{text-align:center}
+      .camp-slideshow-container{flex:0 0 auto; width:90%}
+      .client-row {flex-wrap: wrap; gap: 20px;}
+      .client-item {flex: 0 0 calc(50% - 20px);}
+      .foot {grid-template-columns: 1fr 1fr;}
+    }
+    
+    @media (max-width: 768px){
+      .topbar{display:none}
+      nav.primary{display:none;position:absolute;right:4%;top:64px;background:#0a2136;border:1px solid #18324a;border-radius:14px;padding:10px;width:min(260px,92vw);flex-direction:column}
+      nav.primary.show{display:flex}
+      nav.primary a{padding:10px;border-radius:8px}
+      .hamburger{display:block}
+      .hero .wrap{grid-template-columns:1fr}
+      .hero h1 {white-space: normal; font-size: clamp(24px, 5vw, 36px);}
+      .services .svc{grid-column:span 12}
+      .stats{grid-template-columns:1fr 1fr}
+      .vm-grid{grid-template-columns:1fr}
+      .foot {grid-template-columns: 1fr;}
+      .field {flex-direction: column;}
+      .field > * {margin-bottom: 10px;}
+      section {padding: 40px 0;}
+      .client-item {flex: 0 0 100%;}
+      .experience-item {min-width: 200px;}
+      .btn {padding: 0.7rem 0.9rem; font-size: 0.9rem;}
+      .hero {height: auto; min-height: 80vh;}
+      .hero .wrap {padding: 40px 0;}
+      
+      /* Improve contact form on mobile */
+      .form div[style*="display:flex"] {
+        flex-direction: column;
+        align-items: flex-start !important;
+      }
+      .form div[style*="display:flex"] small {
+        margin-top: 10px;
+      }
+    }
+    
+    @media (max-width: 480px){
+      .ks-grid{grid-template-columns:1fr}
+      .stats {grid-template-columns: 1fr;}
+      .stat {padding: 12px;}
+      .stat .num {font-size: clamp(18px, 5vw, 26px);}
+      .stat .lbl {font-size: 0.85rem;}
+      .section-title {font-size: clamp(20px, 3vw, 28px);}
+      .hero h1 {font-size: clamp(22px, 4.5vw, 30px);}
+      .hero p.lead {font-size: 0.95rem;}
+      .hero .wrap {padding: 30px 0;}
+      .reveal[style*="display:flex"] {flex-direction: column; gap: 8px;}
+      .svc {padding: 15px;}
+      .svc h3 {font-size: 1.1rem;}
+      .svc p {font-size: 0.9rem;}
+      .support-description {font-size: 1.1rem;}
+      .camp-slideshow-container {height: 250px;}
+      .map-address {font-size: 0.9rem; padding: 10px;}
+      .map-container {height: 250px;}
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: no-preference){
+      .reveal{opacity:0;transform:translateY(12px);transition:all .6s ease}
+      .reveal.show{opacity:1;transform:none}
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Header / Nav -->
   <header>
-  <div class="container topbar">
-    <div class="brand">
-      <img src="logo.png" alt="Aarthi Oil and Gas Services Logo" class="logo-img" />
-      <div class="tagline">Seismic Acquisition • Processing • Interpretation</div>
+    <div class="container nav">
+      <div class="brand">
+        <img src="logo1.png" alt="Aarthi Geo Services Logo" class="logo" />
+        <div>
+          <div class="title">Aarthi Oil and Gas Services</div>
+          <div class="sub">Seismic • Processing • Interpretation</div>
+        </div>
+      </div>
+
+      <div class="hamburger" id="hamburger" aria-label="Open menu" role="button">☰</div>
+
+      <nav class="primary" id="siteNav" aria-label="Primary">
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#clients">Clients</a>
+        <a href="#contact" class="cta">Contact Us</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- Hamburger appears only on mobile -->
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="logo-slideshow">
+      <img src="logo2.png" class="slide-logo" alt="Aarthi Logo 2">
+      <img src="logo3.png" class="slide-logo" alt="Aarthi Logo 3">
+      <img src="logo6.png" class="slide-logo" alt="Aarthi Logo 6">
+      <img src="logo7.png" class="slide-logo" alt="Aarthi Logo 7">
+    </div>
+    <div class="container wrap">
+      <div>
+        <h1 class="reveal">Quality Seismic Data Acquisition Services</h1>
+        <p class="lead reveal" style="transition-delay:.1s">We plan, acquire, and process 2D/3D surveys with a safety-first mindset and rigorous QC, delivering subsurface clarity for faster field decisions.</p>
+        <div class="reveal" style="display:flex;gap:10px;transition-delay:.2s">
+          <a href="#contact" class="btn primary">Request a Quote</a>
+          <a href="#services" class="btn outline">Explore Services</a>
+        </div>
+      </div>
+  </section>
 
-    <nav>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact-info" class="cta">Contact</a>
-    </nav>
-  </div>
-</header>
+  <!-- Key Services -->
+  <section class="key-services container">
+    <div class="ks-grid reveal">
+      <div class="ks-item">2D/3D Acquisition</div>
+      <div class="ks-item">On‑site Processing</div>
+      <div class="ks-item">Interpretation</div>
+      <div class="ks-item">HSE Compliance</div>
+    </div>
+  </section>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-left">
-          <h2>Reliable Land Seismic Services <span>Across India</span></h2>
-          <p>We specialize in 2D/3D seismic acquisition, field processing and interpretation — delivering accurate subsurface data.</p>
-          <div class="hero-cards">
-            <div class="hc">2D &amp; 3D Acquisition</div>
-            <div class="hc">On-site Processing</div>
-            <div class="hc">Geophysical Interpretation</div>
+  <!-- About -->
+  <!-- About -->
+    <section id="about" class="about container">
+    <div class="grid">
+        <div>
+        <h2 class="section-title reveal">About Us</h2>
+        <div class="about-content muted reveal" style="transition-delay:.08s">
+            <ul class="about-list">
+                <li>We are one of the emerging land seismic data acquisition & exploration company. We provide impeccable data acquisition, field processing and interpretation services to our clients at a very cost-eﬀective price quotation. We also provide great turnkey drilling services to our clients. We help our clients during seismic data acquisition with the help of which they will be able to know whether the site is proﬁtable for the drilling purpose. Our expert data analyzers provide impeccable quality seismic data interpretation.</li>
+                <li>We provide our extensive technical, geophysical and operational experience and knowledge, we provide a complete solution for Seismic data acquisition, Seismic data field processing, Survey, Project Management, Manpower supply, etc. to some of the most prominent businesses such as Oil & Gas exploration service company, managed by a team of highly experienced professionals, specialized in the geological & geophysical projects and support services.</li>
+            </ul>
+        </div>
+        <style>
+            .about-list {
+                padding-left: 20px;
+                margin-top: 0;
+            }
+            .about-list li {
+                margin-bottom: 15px;
+            }
+            @media (max-width: 768px) {
+                .about-list {
+                    padding-left: 15px;
+                }
+                .about-list li {
+                    font-size: 0.95rem;
+                }
+            }
+            @media (max-width: 480px) {
+                .about-list {
+                    padding-left: 12px;
+                }
+                .about-list li {
+                    font-size: 0.9rem;
+                    margin-bottom: 12px;
+                }
+            }
+        </style>
+        <div class="action-buttons reveal" style="display:flex;gap:10px;margin-top:12px;transition-delay:.16s">
+            <a href="#projects" class="btn primary">See Recent Work</a>
+            <a href="#contact" class="btn">Talk to an Expert</a>
+        </div>
+        </div>
+        <div class="photo reveal" style="transition-delay:.12s">
+        <img src="about_us.png" alt="Field team with seismic equipment" />
+        </div>
+    </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section class="vision-mission container">
+      <div class="vm-grid">
+        <div class="card reveal">
+            <h3>Vision</h3>
+            <p class="muted">
+            Keeping your dreams alive to achieve anything one needs to have faith and belief in oneself, vision, hard work, determination and dedication to understand. Remember that everything is possible for those who believe.
+            </p>
+        </div>
+        <div class="card reveal" style="transition-delay:.1s">
+            <h3>Mission</h3>
+            <p class="muted">
+            Our mission is to accelerate the development of a better financial system; it's not just development of a better financial system, and so we want to back the best teams, who have the biggest ideas, unique solutions to big problems.
+            </p>
+        </div>
+      </div>
+    </section>
+
+     <!-- Stats -->
+    <section class="container">
+      <div class="stats reveal">
+        <div class="stat"><div class="num" data-count="10" data-suffix="+"></div><div class="lbl">Years Combined Team Experience</div></div>
+        <div class="stat"><div class="num" data-count="250" data-suffix="+">0</div><div class="lbl">Team Members</div></div>
+        <div class="stat"><div class="num" data-count="100" data-suffix="%">0</div><div class="lbl">Expertise</div></div>
+        <div class="stat"><div class="num" data-count="20" data-suffix="+">0</div><div class="lbl">Projects Delivered</div></div>
+      </div>
+    </section>
+
+  <!-- Services -->
+  <section id="services" class="services container">
+    <h2 class="section-title reveal">Our Services</h2>
+    <div class="grid reveal" style="grid-template-columns:repeat(12,1fr);transition-delay:.06s">
+      <article class="svc" aria-label="Land Seismic Acquisition">
+        <div class="icon" aria-hidden="true">📡</div>
+        <h3>Seismic Data Acquisition</h3>
+        <p>We provide seismic data to our clients after collection of the data with the help different best recording system and energy resources as per requirement of terrain.
+          The scope of Seismic Data Acquisition Services:
+          <li>Onshore Seismic and Transition Zone</li>
+          <li>2D Seismic Surveys</li>
+          <li>Large-scale 3D Seismic Campaigns</li>
+          <li>High-Resolution Seismic Studies</li>
+          <li>Aspects of Seismic Operations Provided:</li>
+          <li>Survey Design & Pre-Planning</li>
+          <li>Pre-Permitting & Permitting</li>
+          <li>GIS & Surveying</li>
+          <li>Quality Control & In-field Processing</li></p>
+      </article>
+      <article class="svc" aria-label="Field Processing">
+        <div class="icon" aria-hidden="true">🧮</div>
+        <h3>Seismic data processing</h3>
+        <p>From the field to the final volume, seismic data goes through many processes and workflows. Data conditioning encompasses a wide range of technologies designed to address numerous challenges in the processing sequence—from data calibration and regularization to noise and multiple attenuation and signal enhancement.<br>
+           <br>Each prestack process and subsequent imaging algorithm must be carefully selected to match the goals and expertly applied. Each step will affect the fidelity of the final images and, ultimately, your confidence in the results.</p>
+      </article>
+      <article class="svc" aria-label="Interpretation">
+        <div class="icon" aria-hidden="true">🗺️</div>
+        <h3>Seismic Data Interpretation</h3>
+        <p>We provide genuine data interpretation to our clients so that they can cash-in every benefit and curb down the chances of loss. Our expert data analysts will help you to figure out whether it would be wise to commence the drill at the site for hydrocarbons or not. We have experienced data analysts who will provide you with different types of drilling techniques viz. floaters, fixed platform,etc. which you can use for a site.
+          <br><br>Besides providing various techniques, they will also help you to know about the risks which are involved with the drilling process. With the help of our analysts, you will be able to know the time which is suited best for the drilling procedure. Our experts not only help you in your endeavor but with their advice, you can curb loss and save a considerable amount of company resources.</p>
+      </article>
+      <article class="svc" aria-label="Consulting & Support">
+        <div class="icon" aria-hidden="true">🧭</div>
+        <h3>Shot Hole Drilling</h3>
+        <p>AGT deliver safe and productive drilling solutions across a wide range of applications with strong company values. AGT have increased our scope to successfully complete higher profile projects for prominent Oil & Gas companies drilling and constructing their pre-collar conductors in difficult terrain. We provide rigs for the Shot hole drilling purpose. Our rigs are very cost economic plus they help to finish the drilling job within the allotted time frame. With the help of our rigs, you'll also be able to save a considerable amount of money on manual labor which can use for your organization's core activities.
+<br><br>Our rigs are very safe and easy to operate plus they are known to produce less carbon emission and can be moved swiftly between two different drilling sites
+<br><br>AGT is a recognized leader Shot Hole Drilling and can often drill in highly regulated green areas where other companies cannot.</p>
+      </article>
+      <article class="svc" aria-label="Near‑Surface Studies">
+        <div class="icon" aria-hidden="true">🧱</div>
+        <h3>Topographic Survey</h3>
+        <p>We are known to provide an impeccable topographic survey to our clients. Through the help of our survey techniques, our client's will stay ahead in the game. With the help of our services, they will be able to figure out the site which will be suited best for petroleum drilling.
+<br><br>We'll provide a great image of a topographic survey that will help you know the area like the back of your hand and help you estimate the budget. Though our impeccable topographic survey, you will also be able to figure out the cost which will incur during the seismic survey process. With the help of our experts, you'll also be able to know about various drilling sites of the place.</p>
+      </article>
+    </div>
+  </section>
+
+    <!-- Compatible Experience Elements -->
+  <section class="experience container">
+    <h2 class="section-title reveal">Compatible Experience Elements In Geophysical</h2>
+    <div class="experience-grid reveal">
+      <div class="experience-item">
+        <img src="logo8.png" alt="Geophysical Experience Element 1" class="experience-image">
+      </div>
+      <div class="experience-item">
+        <img src="logo9.png" alt="Geophysical Experience Element 2" class="experience-image">
+      </div>
+      <div class="experience-item">
+        <img src="logo10.png" alt="Geophysical Experience Element 3" class="experience-image">
+      </div>
+      <div class="experience-item">
+        <img src="logo11.png" alt="Geophysical Experience Element 4" class="experience-image">
+      </div>
+    </div>
+  </section>
+  
+  <!-- Support Services -->
+  <section class="support-services">
+    <div class="container">
+      <div class="support-header">
+        <h2 class="section-title reveal">Support Services</h2>
+      </div>
+      <div class="support-grid reveal" style="transition-delay:.1s">
+        <div class="support-text">
+          <p class="support-description">We also provide Support Services like Camps, Supplies, Skilled/Semiskilled/Unskilled workforce etc. to clients</p>
+        </div>
+        <div class="camp-slideshow-container">
+          <div class="camp-slideshow">
+            <img src="camp1.png" class="camp-slide" alt="Camp Facilities">
+            <img src="camp2.png" class="camp-slide" alt="Supplies">
+            <img src="camp3.png" class="camp-slide" alt="Workforce">
+            <img src="camp4.png" class="camp-slide" alt="Support Operations">
           </div>
         </div>
-        <div class="hero-right" id="contact">
-          <h3>Request a Quote</h3>
-          <form id="quoteForm">
-            <div class="field-row">
-              <input type="text" id="name" placeholder="Full name" required />
-              <input type="tel" id="phone" placeholder="Phone" required />
-            </div>
-            <input type="email" id="email" placeholder="Email" required />
-            <textarea id="message" rows="4" placeholder="Project details (optional)"></textarea>
-            <button type="button" class="primary" onclick="submitForm()">Send Request</button>
-          </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients -->
+  <section id="clients" class="clients">
+    <div class="container">
+      <h2 class="section-title reveal">Our Clients</h2>
+      <div class="client-row reveal">
+        <div class="client-item">
+          <img src="client1.png" alt="Client 1" class="client-logo">
+        </div>
+        <div class="client-item">
+          <img src="client2.png" alt="Client 2" class="client-logo">
+        </div>
+        <div class="client-item">
+          <img src="client3.png" alt="Client 3" class="client-logo">
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="about" class="about container">
-      <h2>About Aarthi Oil and Gas Services</h2>
-      <p>Aarthi Oil and Gas Services provides end-to-end land seismic services: planning, acquisition, field processing and interpretation. Our teams are experienced in diverse terrains and use best-in-class instrumentation to ensure data quality.</p>
-    </section>
+  <!-- Policy -->
+  <section id="policy" class="policy container">
+    <h2 class="section-title reveal">Policy</h2>
+    <div class="policy-content reveal" style="transition-delay:.1s">
+      <ul class="policy-list">
+        <li>We conduct all our operations with the utmost regard for the Health and Safety, of our employees, our contractors, neighbouring communities, company and Private assets.</li>
+        <li>Our commitment to Health, Safety and the Environment ranks equally with our business objectives.</li>
+        <li>The direct responsibility for Health, Safety, protection of the Environment, and the subsequent implementation of said standards, rests with Line Management.</li>
+        <li>This responsibility will be exercised without compromise or prejudice.</li>
+      </ul>
+    </div>
+    <style>
+      .policy-content {
+        background: #f8f9fa;
+        padding: 25px;
+        border-radius: var(--radius);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        border: 1px solid #eef2f6;
+        margin-top: 20px;
+      }
+      
+      .policy-list {
+        list-style-type: disc;
+        padding-left: 20px;
+      }
+      
+      .policy-list li {
+        margin-bottom: 15px;
+        line-height: 1.6;
+        font-size: 1.05rem;
+      }
+      
+      /* Mobile responsiveness for policy section */
+      @media (max-width: 768px) {
+        .policy-content {
+          padding: 20px 15px;
+        }
+        
+        .policy-list {
+          padding-left: 15px;
+        }
+        
+        .policy-list li {
+          font-size: 0.95rem;
+          margin-bottom: 12px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .policy-content {
+          padding: 15px 12px;
+        }
+        
+        .policy-list {
+          padding-left: 12px;
+        }
+        
+        .policy-list li {
+          font-size: 0.9rem;
+          margin-bottom: 10px;
+        }
+      }
+    </style>
+  </section>
 
-    <section id="services" class="services container">
-      <h2>Our Services</h2>
-      <div class="grid">
-        <div class="svc">
-          <h3>Land Seismic Acquisition</h3>
-          <p>Full-stack acquisition using modern vibrators, recording systems and optimized receiver layouts.</p>
+  <!-- Contact -->
+  <section id="contact" class="contact container">
+    <h2 class="section-title reveal">Contact Us</h2>
+    <div class="grid">
+      <form class="form reveal" id="contactForm" novalidate>
+        <div class="field" style="margin-bottom:10px">
+          <input type="text" id="cname" placeholder="Full name" required aria-label="Full name" />
+          <input type="email" id="cemail" placeholder="Email" required aria-label="Email" />
         </div>
-        <div class="svc">
-          <h3>Field Processing</h3>
-          <p>On-site QC and processing, noise attenuation, deconvolution and stacking to deliver superior images.</p>
+        <div class="field" style="margin-bottom:10px">
+          <input type="tel" id="cphone" placeholder="Phone" required aria-label="Phone" />
+          <select id="cservice" aria-label="Service of interest">
+            <option value="" selected>Service of interest</option>
+            <option>2D Seismic</option>
+            <option>3D Seismic</option>
+            <option>Field Processing</option>
+            <option>Interpretation</option>
+          </select>
         </div>
-        <div class="svc">
-          <h3>Data Interpretation</h3>
-          <p>Seismic interpretation and subsurface modeling combining geophysicists and geologists.</p>
+        <textarea id="cmsg" rows="5" placeholder="Tell us about your project (optional)"></textarea>
+        <div class="contact-submit" style="display:flex;gap:10px;align-items:center;margin-top:10px">
+          <button type="button" class="btn primary" id="contactSend">Send Message</button>
+          <small class="muted contact-address">Address: D. No. 1/231, High School Road, Karichipalayam, Kolaram Village, Namakkal, Tamil Nadu, India, 637201</small>
         </div>
-        <div class="svc">
-          <h3>Consulting &amp; Support</h3>
-          <p>Project planning, permitting support and post-survey analytics to maximize project value.</p>
+        <style>
+          @media (max-width: 768px) {
+            .contact-submit {
+              flex-direction: column;
+              align-items: flex-start !important;
+            }
+            .contact-address {
+              margin-top: 10px;
+            }
+          }
+        </style>
+      </form>
+      <div class="reveal card" style="overflow:hidden">
+        <div class="map-address">
+          <p><strong>Address:</strong> D. No. 1/231, High School Road, Karichipalayam, Kolaram Village, Namakkal, Tamil Nadu, India, 637201</p>
+        </div>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.0307372333396!2d78.16699999999999!3d11.2275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDEzJzM5LjAiTiA3OMKwMTAnMDEuMiJF!5e0!3m2!1sen!2sin!4v1631234567890!5m2!1sen!2sin"
+            width="100%"
+            height="350px"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Aarthi Oil and Gas Services Location">
+          </iframe>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="projects" class="projects container">
-      <h2>Recent Projects</h2>
-      <div class="carousel" id="carousel">
-        <div class="proj">
-          <h4>Onshore Seismic — Tamil Nadu</h4>
-          <p>Acquired 3D blocks using multi-source layout and delivered processed stacks and velocity analysis.</p>
-        </div>
-        <div class="proj">
-          <h4>Geophysical Survey — Andhra</h4>
-          <p>Integrated near-surface surveys for site characterization and shallow mapping.</p>
-        </div>
-        <div class="proj">
-          <h4>Data Reprocessing</h4>
-          <p>Reprocessing legacy surveys to new imaging standards and updated velocity models.</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
+  <!-- Footer -->
   <footer>
-  <div class="container footer-grid">
-    <div>
-      <strong>Aarthi Oil and Gas Services</strong>
-      <p>End-to-end land seismic acquisition and geophysical services across India.</p>
+    <div class="container foot">
+      <div class="footer-brand">
+        <div class="brand" style="margin-bottom:10px">
+          <img src="logo1.png" alt="Aarthi Geo Services Logo" class="logo" />
+          <div>
+            <div class="title">Aarthi Oil and Gas Services</div>
+            <div class="sub">Land Seismic Specialists</div>
+          </div>
+        </div>
+        <p class="muted">Reliable acquisition and processing for energy projects across India. Safety‑first, data‑driven, on schedule.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <ul class="footer-nav">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <ul class="contact-list">
+          <li><i class="fas fa-envelope"></i> <span>npswamy33@aarthioilandgas.com</span></li>
+          <li><i class="fas fa-phone"></i> <span>+91 94437 33233</span></li>
+          <li><i class="fas fa-clock"></i> <span>Mon–Sat 9:00–18:00 IST</span></li>
+        </ul>
+      </div>
     </div>
-    <div class="contact-info" id="contact-info">
-      <p><strong>Address:</strong> D. No. 1/231, High School Road, Karichipalayam, Kolaram Village, Namakkal, Tamil Nadu, India, 637201</p>
-      <p><strong>Email:</strong> <a href="mailto:npswamy33@aarthioilandgas.com">info@aarthigeotech.com</a></p>
-      <p><strong>Phone:</strong> +91 94437 33233</p>
-    </div>
-  </div>
-</footer>
+    <div class="container copyright">© <span id="year"></span> Aarthi Oil and Gas Services. All rights reserved.</div>
+    
+    <style>
+      .footer-nav, .contact-list {
+        list-style: none;
+        padding: 0;
+        margin: 8px 0 0;
+        display: grid;
+        gap: 8px;
+      }
+      
+      .contact-list li {
+        display: flex;
+        align-items: center;
+      }
+      
+      .contact-list i {
+        margin-right: 8px;
+        color: var(--brand);
+        flex-shrink: 0;
+      }
+      
+      @media (max-width: 992px) {
+        .footer-brand {
+          margin-bottom: 20px;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .footer-links, .footer-contact {
+          margin-top: 20px;
+        }
+        
+        .contact-list span {
+          font-size: 0.9rem;
+          word-break: break-word;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .brand .title {
+          font-size: 0.95rem;
+        }
+        
+        .brand .sub {
+          font-size: 0.75rem;
+        }
+        
+        .copyright {
+          text-align: center;
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const siteNav = document.getElementById('siteNav');
+    hamburger?.addEventListener('click',()=> siteNav.classList.toggle('show'));
+
+    // Sticky header subtle shadow on scroll
+    const hdr = document.querySelector('header');
+    const onScroll = () => { hdr.style.boxShadow = window.scrollY > 8 ? '0 6px 18px rgba(0,0,0,.12)' : '0 2px 12px rgba(0,0,0,.06)'; };
+    document.addEventListener('scroll', onScroll, {passive:true});
+
+    // Quote form simple validation
+    function submitForm(){
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      if(!name || !phone || !email){ alert('Please fill in all required fields.'); return; }
+      alert('Thanks, '+name+'! Your request has been submitted.');
+      document.getElementById('quoteForm').reset();
+    }
+    document.getElementById('sendBtn')?.addEventListener('click', submitForm);
+
+    // Contact form
+    document.getElementById('contactSend')?.addEventListener('click',()=>{
+      const n=document.getElementById('cname').value.trim();
+      const e=document.getElementById('cemail').value.trim();
+      const p=document.getElementById('cphone').value.trim();
+      if(!n||!e||!p){ alert('Please fill in name, email and phone.'); return; }
+      alert('Thanks, '+n+'! We\'ll get back shortly.');
+      document.getElementById('contactForm').reset();
+    });
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const id = a.getAttribute('href');
+        if(id.length>1){ e.preventDefault(); document.querySelector(id)?.scrollIntoView({behavior:'smooth',block:'start'}); siteNav.classList.remove('show'); }
+      });
+    });
+
+    // Reveal on scroll (simple)
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('show'); io.unobserve(en.target);} });
+    },{threshold:.12});
+    revealEls.forEach(el=>io.observe(el));
+
+    // Count up stats
+    // Count up stats
+    const nums = document.querySelectorAll('.num');
+    const io2 = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+        if (en.isIntersecting) {
+        const el = en.target;
+        const target = +el.dataset.count;
+        const suffix = el.dataset.suffix || ""; // 👈 get suffix
+        let cur = 0;
+        const step = Math.max(1, Math.floor(target / 80));
+
+        const tick = () => {
+            cur += step;
+            if (cur >= target) {
+            el.textContent = target + suffix; // 👈 add suffix here
+            } else {
+            el.textContent = cur + suffix; // 👈 show suffix while counting
+            requestAnimationFrame(tick);
+            }
+        };
+
+        requestAnimationFrame(tick);
+        io2.unobserve(el);
+        }
+    });
+    }, { threshold: 0.4 });
+
+    nums.forEach(n => io2.observe(n));
 
 
-  <script src="script.js"></script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Logo Slideshow
+    const slideLogos = document.querySelectorAll('.slide-logo');
+    let currentLogoIndex = 0;
+    
+    function showNextLogo() {
+      // Remove active class from all logos
+      slideLogos.forEach(logo => logo.classList.remove('active'));
+      
+      // Add active class to current logo
+      slideLogos[currentLogoIndex].classList.add('active');
+      
+      // Update index for next logo
+      currentLogoIndex = (currentLogoIndex + 1) % slideLogos.length;
+      
+      // Set timeout for next logo change
+      setTimeout(showNextLogo, 3000); // Change logo every 3 seconds
+    }
+    
+    // Start the slideshow if logos exist
+    if (slideLogos.length > 0) {
+      showNextLogo();
+    }
+    
+    // Camp Slideshow
+    const campSlides = document.querySelectorAll('.camp-slide');
+    let currentCampIndex = 0;
+    
+    function showNextCamp() {
+      // Remove active class from all camp slides
+      campSlides.forEach(slide => slide.classList.remove('active'));
+      
+      // Add active class to current camp slide
+      campSlides[currentCampIndex].classList.add('active');
+      
+      // Update index for next camp slide
+      currentCampIndex = (currentCampIndex + 1) % campSlides.length;
+      
+      // Set timeout for next camp slide change
+      setTimeout(showNextCamp, 4000); // Change camp slide every 4 seconds
+    }
+    
+    // Start the camp slideshow if slides exist
+    if (campSlides.length > 0) {
+      campSlides[0].classList.add('active');
+      setTimeout(showNextCamp, 4000);
+    }
+  </script>
 </body>
 </html>
