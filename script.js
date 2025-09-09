@@ -19,3 +19,7 @@ document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
     });
   });
 });
+
+function toggleMenu() {
+  document.querySelector('nav').classList.toggle('show');
+}
