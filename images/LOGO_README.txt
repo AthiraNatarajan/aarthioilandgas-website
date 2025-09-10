@@ -1,12 +1,15 @@
-LOGO IMAGE FOR AARTHI OIL AND GAS EXPLORATION SERVICES
+LOGO IMAGE REQUIREMENTS
 
-Please create and add a logo image file with the following specifications:
+logo1.png - Main company logo
+- Format: PNG with transparency
+- Size: Approximately 200x200 pixels
+- Used in: Header and footer
 
-Filename: logo.png
-Format: PNG with transparent background preferred
-Recommended size: 200-300px width, 50-60px height
-Purpose: This logo will be displayed in the website header and footer
+logo2.png through logo7.png - Background slideshow images
+- Format: JPG or PNG
+- Size: 1920x1080 pixels (16:9 ratio)
+- Used in: Hero section background slideshow
+- Content: Oil and gas exploration scenes, equipment, or abstract industry-related imagery
+- These images should be high-quality and professional, representing the company's field operations
 
-The logo should represent "Aarthi Oil and Gas Exploration Services" and should be professional and aligned with the oil and gas exploration industry.
-
-Until a proper logo is created, the website will display a broken image placeholder.
+Note: Ensure all images are properly compressed to maintain fast website loading times.
