@@ -265,7 +265,7 @@
     input:focus,textarea:focus,select:focus{outline:3px solid var(--ring);border-color:var(--brand)}
     
     .map-address {
-      background-color: var(--brand);
+      background-color: var(--bg-2);
       color: white;
       padding: 15px;
       text-align: center;
@@ -533,12 +533,105 @@
   <!-- Services -->
   <section id="services" class="services container">
     <h2 class="section-title reveal">Our Services</h2>
-    <div class="grid reveal" style="grid-template-columns:repeat(12,1fr);transition-delay:.06s">
-      <article class="svc" aria-label="Land Seismic Acquisition">
-        <div class="icon" aria-hidden="true">📡</div>
+    
+    <style>
+      .service-row {
+        display: flex;
+        margin-bottom: 40px;
+        background: #fff;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+      
+      .service-image {
+        flex: 0 0 40%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 300px;
+      }
+      
+      .service-content {
+        flex: 0 0 60%;
+        padding: 30px;
+      }
+      
+      .service-content h3 {
+        color: var(--bg-2);
+        font-size: 1.8rem;
+        margin-top: 0;
+        margin-bottom: 20px;
+        border-bottom: 2px solid var(--brand);
+        padding-bottom: 10px;
+        display: inline-block;
+      }
+      
+      .service-content p {
+        color: var(--muted);
+        margin-bottom: 15px;
+      }
+      
+      .service-content ul {
+        padding-left: 20px;
+        margin-top: 10px;
+      }
+      
+      .service-content li {
+        margin-bottom: 8px;
+        color: var(--muted);
+      }
+      
+      @media (max-width: 992px) {
+        .service-row {
+          flex-direction: column;
+        }
+        
+        .service-image {
+          flex: 0 0 200px;
+          min-height: 200px;
+          width: 100%;
+        }
+        
+        .service-content {
+          flex: 1;
+          padding: 20px;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .service-content h3 {
+          font-size: 1.5rem;
+        }
+        
+        .service-row {
+          margin-bottom: 30px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .service-image {
+          min-height: 150px;
+        }
+        
+        .service-content {
+          padding: 15px;
+        }
+        
+        .service-content h3 {
+          font-size: 1.3rem;
+        }
+      }
+    </style>
+    
+    <!-- Seismic Data Acquisition -->
+    <div class="service-row reveal" style="transition-delay:.06s">
+      <div class="service-image" style="background-image: url('logo3.png');"></div>
+      <div class="service-content">
         <h3>Seismic Data Acquisition</h3>
-        <p>We provide seismic data to our clients after collection of the data with the help different best recording system and energy resources as per requirement of terrain.
-          The scope of Seismic Data Acquisition Services:
+        <p>We provide seismic data to our clients after collection of the data with the help different best recording system and energy resources as per requirement of terrain.</p>
+        <p>The scope of Seismic Data Acquisition Services:</p>
+        <ul>
           <li>Onshore Seismic and Transition Zone</li>
           <li>2D Seismic Surveys</li>
           <li>Large-scale 3D Seismic Campaigns</li>
@@ -547,33 +640,50 @@
           <li>Survey Design & Pre-Planning</li>
           <li>Pre-Permitting & Permitting</li>
           <li>GIS & Surveying</li>
-          <li>Quality Control & In-field Processing</li></p>
-      </article>
-      <article class="svc" aria-label="Field Processing">
-        <div class="icon" aria-hidden="true">🧮</div>
-        <h3>Seismic data processing</h3>
-        <p>From the field to the final volume, seismic data goes through many processes and workflows. Data conditioning encompasses a wide range of technologies designed to address numerous challenges in the processing sequence—from data calibration and regularization to noise and multiple attenuation and signal enhancement.<br>
-           <br>Each prestack process and subsequent imaging algorithm must be carefully selected to match the goals and expertly applied. Each step will affect the fidelity of the final images and, ultimately, your confidence in the results.</p>
-      </article>
-      <article class="svc" aria-label="Interpretation">
-        <div class="icon" aria-hidden="true">🗺️</div>
+          <li>Quality Control & In-field Processing</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Seismic Data Processing -->
+    <div class="service-row reveal" style="transition-delay:.1s">
+      <div class="service-image" style="background-image: url('logo4.png');"></div>
+      <div class="service-content">
+        <h3>Seismic Data Processing</h3>
+        <p>From the field to the final volume, seismic data goes through many processes and workflows. Data conditioning encompasses a wide range of technologies designed to address numerous challenges in the processing sequence—from data calibration and regularization to noise and multiple attenuation and signal enhancement.</p>
+        <p>Each prestack process and subsequent imaging algorithm must be carefully selected to match the goals and expertly applied. Each step will affect the fidelity of the final images and, ultimately, your confidence in the results.</p>
+      </div>
+    </div>
+    
+    <!-- Seismic Data Interpretation -->
+    <div class="service-row reveal" style="transition-delay:.14s">
+      <div class="service-image" style="background-image: url('logo5.png');"></div>
+      <div class="service-content">
         <h3>Seismic Data Interpretation</h3>
-        <p>We provide genuine data interpretation to our clients so that they can cash-in every benefit and curb down the chances of loss. Our expert data analysts will help you to figure out whether it would be wise to commence the drill at the site for hydrocarbons or not. We have experienced data analysts who will provide you with different types of drilling techniques viz. floaters, fixed platform,etc. which you can use for a site.
-          <br><br>Besides providing various techniques, they will also help you to know about the risks which are involved with the drilling process. With the help of our analysts, you will be able to know the time which is suited best for the drilling procedure. Our experts not only help you in your endeavor but with their advice, you can curb loss and save a considerable amount of company resources.</p>
-      </article>
-      <article class="svc" aria-label="Consulting & Support">
-        <div class="icon" aria-hidden="true">🧭</div>
+        <p>We provide genuine data interpretation to our clients so that they can cash-in every benefit and curb down the chances of loss. Our expert data analysts will help you to figure out whether it would be wise to commence the drill at the site for hydrocarbons or not. We have experienced data analysts who will provide you with different types of drilling techniques viz. floaters, fixed platform, etc. which you can use for a site.</p>
+        <p>Besides providing various techniques, they will also help you to know about the risks which are involved with the drilling process. With the help of our analysts, you will be able to know the time which is suited best for the drilling procedure. Our experts not only help you in your endeavor but with their advice, you can curb loss and save a considerable amount of company resources.</p>
+      </div>
+    </div>
+    
+    <!-- Shot Hole Drilling -->
+    <div class="service-row reveal" style="transition-delay:.18s">
+      <div class="service-image" style="background-image: url('logo6.png');"></div>
+      <div class="service-content">
         <h3>Shot Hole Drilling</h3>
-        <p>AGT deliver safe and productive drilling solutions across a wide range of applications with strong company values. AGT have increased our scope to successfully complete higher profile projects for prominent Oil & Gas companies drilling and constructing their pre-collar conductors in difficult terrain. We provide rigs for the Shot hole drilling purpose. Our rigs are very cost economic plus they help to finish the drilling job within the allotted time frame. With the help of our rigs, you'll also be able to save a considerable amount of money on manual labor which can use for your organization's core activities.
-<br><br>Our rigs are very safe and easy to operate plus they are known to produce less carbon emission and can be moved swiftly between two different drilling sites
-<br><br>AGT is a recognized leader Shot Hole Drilling and can often drill in highly regulated green areas where other companies cannot.</p>
-      </article>
-      <article class="svc" aria-label="Near‑Surface Studies">
-        <div class="icon" aria-hidden="true">🧱</div>
+        <p>AGT deliver safe and productive drilling solutions across a wide range of applications with strong company values. AGT have increased our scope to successfully complete higher profile projects for prominent Oil & Gas companies drilling and constructing their pre-collar conductors in difficult terrain. We provide rigs for the Shot hole drilling purpose.</p>
+        <p>Our rigs are very cost economic plus they help to finish the drilling job within the allotted time frame. With the help of our rigs, you'll also be able to save a considerable amount of money on manual labor which can use for your organization's core activities.</p>
+        <p>Our rigs are very safe and easy to operate plus they are known to produce less carbon emission and can be moved swiftly between two different drilling sites. AGT is a recognized leader Shot Hole Drilling and can often drill in highly regulated green areas where other companies cannot.</p>
+      </div>
+    </div>
+    
+    <!-- Topographic Survey -->
+    <div class="service-row reveal" style="transition-delay:.22s">
+      <div class="service-image" style="background-image: url('logo7.png');"></div>
+      <div class="service-content">
         <h3>Topographic Survey</h3>
-        <p>We are known to provide an impeccable topographic survey to our clients. Through the help of our survey techniques, our client's will stay ahead in the game. With the help of our services, they will be able to figure out the site which will be suited best for petroleum drilling.
-<br><br>We'll provide a great image of a topographic survey that will help you know the area like the back of your hand and help you estimate the budget. Though our impeccable topographic survey, you will also be able to figure out the cost which will incur during the seismic survey process. With the help of our experts, you'll also be able to know about various drilling sites of the place.</p>
-      </article>
+        <p>We are known to provide an impeccable topographic survey to our clients. Through the help of our survey techniques, our client's will stay ahead in the game. With the help of our services, they will be able to figure out the site which will be suited best for petroleum drilling.</p>
+        <p>We'll provide a great image of a topographic survey that will help you know the area like the back of your hand and help you estimate the budget. Though our impeccable topographic survey, you will also be able to figure out the cost which will incur during the seismic survey process. With the help of our experts, you'll also be able to know about various drilling sites of the place.</p>
+      </div>
     </div>
   </section>
 
@@ -705,14 +815,14 @@
   <section id="contact" class="contact container">
     <h2 class="section-title reveal">Contact Us</h2>
     <div class="grid">
-      <form class="form reveal" id="contactForm" novalidate>
+      <form class="form reveal" id="contactForm" action="https://formspree.io/f/npswamy33@aarthioilandgas.com" method="POST">
         <div class="field" style="margin-bottom:10px">
-          <input type="text" id="cname" placeholder="Full name" required aria-label="Full name" />
-          <input type="email" id="cemail" placeholder="Email" required aria-label="Email" />
+          <input type="text" name="name" placeholder="Full name" required aria-label="Full name" />
+          <input type="email" name="email" placeholder="Email" required aria-label="Email" />
         </div>
         <div class="field" style="margin-bottom:10px">
-          <input type="tel" id="cphone" placeholder="Phone" required aria-label="Phone" />
-          <select id="cservice" aria-label="Service of interest">
+          <input type="tel" name="phone" placeholder="Phone" required aria-label="Phone" />
+          <select name="service" aria-label="Service of interest">
             <option value="" selected>Service of interest</option>
             <option>2D Seismic</option>
             <option>3D Seismic</option>
@@ -720,22 +830,11 @@
             <option>Interpretation</option>
           </select>
         </div>
-        <textarea id="cmsg" rows="5" placeholder="Tell us about your project (optional)"></textarea>
-        <div class="contact-submit" style="display:flex;gap:10px;align-items:center;margin-top:10px">
-          <button type="button" class="btn primary" id="contactSend">Send Message</button>
-          <small class="muted contact-address">Address: D. No. 1/231, High School Road, Karichipalayam, Kolaram Village, Namakkal, Tamil Nadu, India, 637201</small>
+        <textarea name="message" rows="5" placeholder="Tell us about your project (optional)"></textarea>
+        <input type="hidden" name="_subject" value="New inquiry from Aarthi Oil and Gas website" />
+        <div class="contact-submit" style="display:flex;justify-content:center;margin-top:20px">
+          <button type="submit" class="btn dark">Send Message</button>
         </div>
-        <style>
-          @media (max-width: 768px) {
-            .contact-submit {
-              flex-direction: column;
-              align-items: flex-start !important;
-            }
-            .contact-address {
-              margin-top: 10px;
-            }
-          }
-        </style>
       </form>
       <div class="reveal card" style="overflow:hidden">
         <div class="map-address">
@@ -866,15 +965,8 @@
     }
     document.getElementById('sendBtn')?.addEventListener('click', submitForm);
 
-    // Contact form
-    document.getElementById('contactSend')?.addEventListener('click',()=>{
-      const n=document.getElementById('cname').value.trim();
-      const e=document.getElementById('cemail').value.trim();
-      const p=document.getElementById('cphone').value.trim();
-      if(!n||!e||!p){ alert('Please fill in name, email and phone.'); return; }
-      alert('Thanks, '+n+'! We\'ll get back shortly.');
-      document.getElementById('contactForm').reset();
-    });
+    // Contact form validation is now handled by the browser's built-in form validation
+    // and submission is handled by Formspree
 
     // Smooth scroll for internal links
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
