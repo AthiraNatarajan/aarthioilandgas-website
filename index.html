@@ -492,7 +492,6 @@
             }
         </style>
         <div class="action-buttons reveal" style="display:flex;gap:10px;margin-top:12px;transition-delay:.16s">
-            <a href="#projects" class="btn primary">See Recent Work</a>
             <a href="#contact" class="btn">Talk to an Expert</a>
         </div>
         </div>
@@ -815,7 +814,10 @@
   <section id="contact" class="contact container">
     <h2 class="section-title reveal">Contact Us</h2>
     <div class="grid">
-      <form class="form reveal" id="contactForm" action="https://formspree.io/f/npswamy33@aarthioilandgas.com" method="POST">
+      <form class="form reveal" id="contactForm" action="https://formsubmit.co/npswamy33@aarthioilandgas.com" method="POST">
+        <input type="hidden" name="_subject" value="New inquiry from Aarthi Oil and Gas website">
+        <input type="hidden" name="_next" value="https://aarthioilandgas.com/thank-you.html">
+        <input type="hidden" name="_template" value="table">
         <div class="field" style="margin-bottom:10px">
           <input type="text" name="name" placeholder="Full name" required aria-label="Full name" />
           <input type="email" name="email" placeholder="Email" required aria-label="Email" />
@@ -831,7 +833,6 @@
           </select>
         </div>
         <textarea name="message" rows="5" placeholder="Tell us about your project (optional)"></textarea>
-        <input type="hidden" name="_subject" value="New inquiry from Aarthi Oil and Gas website" />
         <div class="contact-submit" style="display:flex;justify-content:center;margin-top:20px">
           <button type="submit" class="btn dark">Send Message</button>
         </div>
@@ -943,6 +944,8 @@
     </style>
   </footer>
 
+  <!-- No external email scripts needed with FormSubmit -->
+  
   <script>
     // Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
@@ -965,8 +968,7 @@
     }
     document.getElementById('sendBtn')?.addEventListener('click', submitForm);
 
-    // Contact form validation is now handled by the browser's built-in form validation
-    // and submission is handled by Formspree
+    // Contact form is now handled by FormSubmit
 
     // Smooth scroll for internal links
     document.querySelectorAll('a[href^="#"]').forEach(a=>{

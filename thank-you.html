@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thank You - Aarthi Oil And Gas Exploration Services Private Limited</title>
+  <meta name="description" content="Thank you for contacting Aarthi Oil and Gas Exploration Services." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1b29;
+      --bg-2:#0f2236;
+      --brand:#18a0fb;
+      --brand-2:#00c1a1;
+      --ink:#0f172a;
+      --muted:#5f6b77;
+      --card:#ffffff;
+      --ring:rgba(24,160,251,.35);
+      --grad:linear-gradient(135deg, var(--brand) 0%, #5cc6ff 40%, #7ee2ff 100%);
+      --shade:rgba(0,0,0,.45);
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.15);
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;color:#0f2436;background:#f6f9fc}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1200px,92%);margin-inline:auto}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.8rem 1rem;border-radius:12px;border:1px solid transparent;font-weight:700}
+    .btn.primary{background:var(--brand);color:#ffffff}
+    .btn.dark{background:#0f2236;color:#fff}
+    
+    /* Header */
+    header{background:linear-gradient(90deg,#0a2136,#0b2a46);color:#fff;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{width:42px;height:42px;border-radius:10px;background:var(--grad);display:grid;place-items:center;color:#001827;font-weight:800}
+    .brand .title{font-weight:800;letter-spacing:.2px}
+    .brand .sub{font-size:.78rem;opacity:.8}
+    
+    /* Thank You Content */
+    .thank-you-section {
+      padding: 80px 0;
+      text-align: center;
+    }
+    
+    .thank-you-card {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 40px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .thank-you-icon {
+      font-size: 60px;
+      color: var(--brand);
+      margin-bottom: 20px;
+    }
+    
+    .thank-you-title {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: var(--bg-2);
+    }
+    
+    .thank-you-message {
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+    
+    /* Footer */
+    footer{background:#06131f;color:#c8d2dc; margin-top: 40px;}
+    .copyright{border-top:1px solid #0f2436;color:#9fb2c4;padding:14px 0; text-align: center;}
+    
+    /* Mobile */
+    @media (max-width: 768px){
+      .thank-you-card {
+        padding: 30px 20px;
+      }
+      
+      .thank-you-title {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="logo1.png" alt="Aarthi Geo Services Logo" class="logo" />
+        <div>
+          <div class="title">Aarthi Oil And Gas Exploration Services Private Limited</div>
+          <div class="sub">Seismic • Processing • Interpretation</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Thank You Section -->
+  <section class="thank-you-section container">
+    <div class="thank-you-card">
+      <div class="thank-you-icon">✓</div>
+      <h1 class="thank-you-title">Thank You for Contacting Us!</h1>
+      <p class="thank-you-message">Your message has been received. We appreciate your interest in Aarthi Oil and Gas Exploration Services and will get back to you as soon as possible.</p>
+      <a href="index.html" class="btn dark">Return to Homepage</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container copyright">© <span id="year"></span> Aarthi Oil And Gas Exploration Services Private Limited. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
